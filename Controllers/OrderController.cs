@@ -18,9 +18,9 @@ namespace CqrsDemo.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Post(GetAllOrdersQuery query)
+        public async Task<IActionResult> Get()
         {
-            var orders = await _mediatR.Send(query);
+            var orders = await _mediatR.Send(new GetAllOrdersQuery());
             return Ok(orders);
         }
 
